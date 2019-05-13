@@ -1,0 +1,25 @@
+
+<div class="container text-center">
+  <h1>Games</h1>
+
+  <div class="d-flex justify-content-around">
+    <ul class="d-flex">
+      <%  @letter_array.each { |letter| %>
+      <li><%= letter %></li>
+
+      <% } %>
+    </ul>
+  </div>
+
+  <form action="./score" method="post">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+     <%= hidden_field_tag :letters , @letter_array %>
+
+    <div class="form-group">
+      <input class="form-control" type="text" name="input" placeholder="fill in a word">
+    </div>
+    <div class="form-group">
+      <input class="form-control btn btn-outline-success" type="submit" value="check">
+    </div>
+  </form>
+</div>
